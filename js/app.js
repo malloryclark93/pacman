@@ -82,20 +82,32 @@ function control(e) {
   squares[pacmanCurrentIndex].classList.remove('pacman')
   switch(e.keyCode){
     case 40:
-      if(pacmanCurrentIndex + width <= 784) pacmanCurrentIndex +=28
+      if(
+        !squares[pacmanCurrentIndex + width].classList.contains('wall')&&
+        pacmanCurrentIndex + width <= 784
+        ) pacmanCurrentIndex +=28
       console.log('pressed down')
     break
     case 38:
-      if(pacmanCurrentIndex - width >= 0) pacmanCurrentIndex -=28
+      if(
+        !squares[pacmanCurrentIndex - width].classList.contains('wall')&&
+        pacmanCurrentIndex - width >= 0
+        ) pacmanCurrentIndex -=28
       console.log('pressed up')
     break
     case 37:
-      if(pacmanCurrentIndex % width !== 0) pacmanCurrentIndex -=1
+      if(
+        !squares[pacmanCurrentIndex -1].classList.contains('wall')&&
+        pacmanCurrentIndex % width !== 0
+        ) pacmanCurrentIndex -=1
       console.log('pressed left')
     break
     case 39:
       // ???
-      if(pacmanCurrentIndex % width < 28 -1) pacmanCurrentIndex +=1
+      if(
+        !squares[pacmanCurrentIndex +1].classList.contains('wall')&&
+        pacmanCurrentIndex % width < 28 -1
+        ) pacmanCurrentIndex +=1
       console.log('pressed right')
     break
   }
