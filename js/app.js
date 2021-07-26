@@ -94,7 +94,8 @@ function control(e) {
       console.log('pressed left')
     break
     case 39:
-      if(pacmanCurrentIndex % width !== 28) pacmanCurrentIndex +=1
+      // ???
+      if(pacmanCurrentIndex % width < 28 -1) pacmanCurrentIndex +=1
       console.log('pressed right')
     break
   }
