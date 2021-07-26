@@ -5,6 +5,7 @@ body {
   color: #AA2EE6;
   font-weight: bold;
   text-align: center;
+  font-family: 'Otomanopee One', sans-serif;
 }
 
 /* #FFDF6B */
@@ -39,10 +40,11 @@ body {
 }
 
 .pacman {
-  background-color:  #FFDF6B;
+  background-color:  #FF7600;
   border-radius: 50%;
+  border: none;
 }
 
-.ghost-lair {
+/* .ghost-lair {
   background-color: white;
-}
+} */

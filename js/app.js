@@ -65,4 +65,33 @@ function createGrid(){
 }
 createGrid()
 
-console.log(squares.length)
+// console.log(squares.length)
+
+
+// where is pacman? 
+
+// place him at 500th square
+let pacmanCurrentIndex = 490;
+
+// put him in thr squares array at the assigned square
+squares[pacmanCurrentIndex].classList.add('pacman')
+
+
+function control(e) {
+  switch(e.keyCode){
+    case 40:
+      console.log('pressed down')
+    break
+    case 38:
+      console.log('pressed up')
+    break
+    case 37:
+      console.log('pressed left')
+    break
+    case 39:
+      console.log('pressed right')
+    break
+  }
+}
+
+document.addEventListener('keyup', control)
