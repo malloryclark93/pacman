@@ -76,13 +76,15 @@ let pacmanCurrentIndex = 490;
 // put him in the squares array at the assigned square
 squares[pacmanCurrentIndex].classList.add('pacman')
 
-
+// function checks to see if pacman is within his correct parts on the grid 
 function control(e) {
   // removing the pacman css from squares as he moves forward
   squares[pacmanCurrentIndex].classList.remove('pacman')
+  
   switch(e.keyCode){
     case 40:
       if(
+        !squares[pacmanCurrentIndex + 28].classList.contains('ghost-lair') &&
         !squares[pacmanCurrentIndex + width].classList.contains('wall')&&
         pacmanCurrentIndex + width <= 784
         ) pacmanCurrentIndex +=28
@@ -90,6 +92,7 @@ function control(e) {
     break
     case 38:
       if(
+        !squares[pacmanCurrentIndex -28].classList.contains('ghost-lair') &&
         !squares[pacmanCurrentIndex - width].classList.contains('wall')&&
         pacmanCurrentIndex - width >= 0
         ) pacmanCurrentIndex -=28
@@ -97,6 +100,7 @@ function control(e) {
     break
     case 37:
       if(
+        !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair') &&
         !squares[pacmanCurrentIndex -1].classList.contains('wall')&&
         pacmanCurrentIndex % width !== 0
         ) pacmanCurrentIndex -=1
@@ -105,6 +109,7 @@ function control(e) {
     case 39:
       // ???
       if(
+        !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair') &&
         !squares[pacmanCurrentIndex +1].classList.contains('wall')&&
         pacmanCurrentIndex % width < 28 -1
         ) pacmanCurrentIndex +=1
