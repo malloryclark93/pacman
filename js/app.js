@@ -73,25 +73,33 @@ createGrid()
 // place him at 500th square
 let pacmanCurrentIndex = 490;
 
-// put him in thr squares array at the assigned square
+// put him in the squares array at the assigned square
 squares[pacmanCurrentIndex].classList.add('pacman')
 
 
 function control(e) {
+  // removing the pacman css from squares as he moves forward
+  squares[pacmanCurrentIndex].classList.remove('pacman')
   switch(e.keyCode){
     case 40:
+      if(pacmanCurrentIndex + width <= 784) pacmanCurrentIndex +=28
       console.log('pressed down')
     break
     case 38:
+      if(pacmanCurrentIndex - width >= 0) pacmanCurrentIndex -=28
       console.log('pressed up')
     break
     case 37:
+      if(pacmanCurrentIndex % width !== 0) pacmanCurrentIndex -=1
       console.log('pressed left')
     break
     case 39:
+      if(pacmanCurrentIndex % width !== 28) pacmanCurrentIndex +=1
       console.log('pressed right')
     break
   }
+  // adding pacman css as he moves forward on the keys pressed
+  squares[pacmanCurrentIndex].classList.add('pacman')
 }
 
 document.addEventListener('keyup', control)
