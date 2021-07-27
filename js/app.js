@@ -2,6 +2,7 @@ const width = 28
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.querySelector('#score')
 let squares = []
+let score = 0
 
 // 28 by 28 grid -- 28 rows and 28 columns = 784 squares
 
@@ -126,6 +127,16 @@ function control(e) {
   }
   // adding pacman css as he moves forward on the keys pressed
   squares[pacmanCurrentIndex].classList.add('pacman')
+  eatPacdot()
 }
 
 document.addEventListener('keyup', control)
+
+function eatPacdot(){
+  if(squares[pacmanCurrentIndex].classList.contains('pac-dot')){
+    squares[pacmanCurrentIndex].classList.remove('pac-dot')
+    score++;
+    scoreDisplay.innerHTML = score
+  }
+}
+
