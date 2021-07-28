@@ -160,8 +160,8 @@ const ghosts = [
 
 // place ghosts on grid
 ghosts.forEach(ghost => {
-  squares[ghost.startIndex].classList.add(ghost.className);
-  squares[ghost.startIndex].classList.add('ghost')
+  squares[ghost.currentIndex].classList.add(ghost.className);
+  squares[ghost.currentIndex].classList.add('ghost')
 })
 
 

@@ -40,7 +40,8 @@ body {
 }
 
 .pacman {
-  background-color:  #FF7600;
+  /* background-color:  #FF7600; */
+  background-image: url(/images/pacman.png);
   border-radius: 50%;
   border: none;
 }
