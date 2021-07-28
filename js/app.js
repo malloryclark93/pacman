@@ -140,3 +140,55 @@ function eatPacdot(){
   }
 }
 
+class Ghost {
+  constructor(className, startIndex, speed){
+    this.className = className;
+    this.startIndex = startIndex;
+    this.speed = speed;
+    this.currentIndex = startIndex;
+    this.isScared = false;
+    this.timerId = NaN;
+  }
+}
+
+const ghosts = [
+  new Ghost('blinky', 348, 250),
+  new Ghost('pinky', 376, 400),
+  new Ghost('inky', 351, 300),
+  new Ghost('clyde', 379, 500)
+]
+
+// place ghosts on grid
+ghosts.forEach(ghost => {
+  squares[ghost.startIndex].classList.add(ghost.className);
+  squares[ghost.startIndex].classList.add('ghost')
+})
+
+
+ // move ghosts 
+ghosts.forEach(ghost => moveGhosts(ghost))
+
+function moveGhosts(ghost){
+  const directions = [-1, +1, -28, +28]
+  let direction = directions[Math.floor(Math.random() * directions.length)]
+  console.log(direction)
+
+  // grabbing each ghost and applying their speed
+  ghost.timerId = setInterval(function(){
+    if(
+      // pacman can't keep going in the direction if classes are wall/ghost
+      !squares[ghost.currentIndex + direction].classList.contains('wall') &&
+      !squares[ghost.currentIndex + direction].classList.contains('ghost')
+      ) {
+      
+      squares[ghost.currentIndex].classList.remove(ghost.className)
+      ghost.currentIndex += direction
+      squares[ghost.currentIndex].classList.add(ghost.className)
+     
+      } else direction = directions[Math.floor(Math.random() * directions.length)]
+
+   
+  }, ghost.speed)
+}
+
+// clearInterval(ghost.speed)

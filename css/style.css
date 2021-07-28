@@ -25,7 +25,7 @@ body {
 }
 
 .pac-dot {
-  background-color:  hotpink;
+  background-color:  fuchsia;
   border: 5px solid white;
   box-sizing: border-box;
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .power-pellet {
-  background-color: hotpink;
+  background-color: limegreen;
   border-radius: 50%;
 }
 
@@ -45,6 +45,26 @@ body {
   border: none;
 }
 
-/* .ghost-lair {
-  background-color: white;
-} */
+.blinky {
+  background-color: red;
+  border: none;
+  border-radius: 25%;
+}
+
+.pinky {
+  background-color: hotpink;
+  border-radius: 25%;
+  border: none;
+}
+
+.inky {
+  background-color: turquoise;
+  border-radius: 25%;
+  border: none;
+}
+
+.clyde {
+  background-color: orange;
+  border-radius: 25%;
+  
+}
