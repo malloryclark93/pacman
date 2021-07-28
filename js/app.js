@@ -182,8 +182,11 @@ function moveGhosts(ghost){
       ) {
       
       squares[ghost.currentIndex].classList.remove(ghost.className)
+      squares[ghost.currentIndex].classList.remove('ghost')
+      
       ghost.currentIndex += direction
       squares[ghost.currentIndex].classList.add(ghost.className)
+      squares[ghost.currentIndex].classList.add('ghost')
      
       } else direction = directions[Math.floor(Math.random() * directions.length)]
 
