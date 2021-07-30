@@ -144,11 +144,13 @@ function eatPacdot(){
 function eatPowerPellet(){
   if(
     squares[pacmanCurrentIndex].classList.contains('power-pellet')){
+    squares[pacmanCurrentIndex].classList.remove('power-pellet')  
+
       score += 10
 
       ghosts.forEach(ghost => ghost.isScared = true)
   
-      setTimeout(normalizeGhosts, 3000)
+      setTimeout(normalizeGhosts, 7000)
     }
    
 }
@@ -213,6 +215,17 @@ function moveGhosts(ghost){
         // ghosts.forEach(ghost => backgroundColor = blue)
         squares[ghost.currentIndex].classList.add('scared-ghost')
       }
+
+      if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pacman')){
+        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+
+        ghost.currentIndex = ghost.startIndex
+
+        score += 100
+
+        squares[ghost.currentIndex].classList.add('ghost.className', 'ghost')
+      }
+
    
   }, ghost.speed)
 }
