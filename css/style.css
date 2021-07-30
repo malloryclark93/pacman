@@ -24,6 +24,16 @@ body {
   height: 15px;
 }
 
+div.image {
+  content: url(/js/images/pacman-logo.png);
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 0;
+  color: orange;
+}
+
 .pac-dot {
   background-color:  fuchsia;
   border: 5px solid white;
@@ -35,37 +45,48 @@ body {
 }
 
 .power-pellet {
-  background-color: limegreen;
-  border-radius: 50%;
+  background-image: url(/js/images/cherry.png);
+  /* border-radius: 50%; */
 }
 
 .pacman {
   /* background-color:  #FF7600; */
-  background-image: url(/images/pacman.png);
+  background-image: url(/js/images/pacman.png);
   border-radius: 50%;
   border: none;
 }
 
 .blinky {
-  background-color: red;
+  background-image: url(/js/images/blinky.png);
   border: none;
   border-radius: 25%;
+  background-color: #fff;
 }
 
 .pinky {
-  background-color: hotpink;
+  background-image: url(/js/images/pinky.png);
   border-radius: 25%;
   border: none;
+  background-color: #fff;
 }
 
 .inky {
-  background-color: turquoise;
+  /* background-color: turquoise; */
+  background-image: url(/js/images/inky.png);
   border-radius: 25%;
   border: none;
+  background-color: #fff;
 }
 
 .clyde {
-  background-color: orange;
+  /* background-color: orange; */
+  background-image: url(/js/images/clyde.png);
   border-radius: 25%;
+  border: none;
+  background-color: #fff;
   
+}
+
+.scared-ghost {
+  background-image: url(/js/images/scared-ghost.png);
 }

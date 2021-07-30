@@ -128,6 +128,7 @@ function control(e) {
   // adding pacman css as he moves forward on the keys pressed
   squares[pacmanCurrentIndex].classList.add('pacman')
   eatPacdot()
+  eatPowerPellet()
 }
 
 document.addEventListener('keyup', control)
@@ -138,6 +139,24 @@ function eatPacdot(){
     score++;
     scoreDisplay.innerHTML = score
   }
+}
+
+function eatPowerPellet(){
+  if(
+    squares[pacmanCurrentIndex].classList.contains('power-pellet')){
+      score += 10
+
+      ghosts.forEach(ghost => ghost.isScared = true)
+  
+      setTimeout(normalizeGhosts, 3000)
+    }
+   
+}
+
+function normalizeGhosts(){
+  
+  ghosts.forEach(ghost => ghost.isScared = false)
+
 }
 
 class Ghost {
@@ -182,14 +201,18 @@ function moveGhosts(ghost){
       ) {
       
       squares[ghost.currentIndex].classList.remove(ghost.className)
-      squares[ghost.currentIndex].classList.remove('ghost')
+      squares[ghost.currentIndex].classList.remove('ghost', 'scared-ghost')
       
       ghost.currentIndex += direction
       squares[ghost.currentIndex].classList.add(ghost.className)
       squares[ghost.currentIndex].classList.add('ghost')
      
       } else direction = directions[Math.floor(Math.random() * directions.length)]
-
+      
+      if(ghost.isScared){
+        // ghosts.forEach(ghost => backgroundColor = blue)
+        squares[ghost.currentIndex].classList.add('scared-ghost')
+      }
    
   }, ghost.speed)
 }
