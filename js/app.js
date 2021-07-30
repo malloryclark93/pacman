@@ -226,8 +226,32 @@ function moveGhosts(ghost){
         squares[ghost.currentIndex].classList.add('ghost.className', 'ghost')
       }
 
-   
+      isTheGameOver()
+      isTheGameWon()
   }, ghost.speed)
 }
 
 // clearInterval(ghost.speed)
+
+function isTheGameOver(){
+  if(
+    squares[pacmanCurrentIndex].classList.contains('ghost') && 
+    !squares[pacmanCurrentIndex].classList.contains('scared-ghost')
+  ){
+    ghosts.forEach(ghost =>  
+      clearInterval(ghost.timerId))
+
+      document.removeEventListener('keyup', control)
+
+      scoreDisplay.innerHTML = ' GAME OVER'
+  }
+
+}
+
+function isTheGameWon(){
+  if (score === 274){
+    ghosts.forEach(ghost => clearInterval(ghost.timerId))
+    document.removeEventListener('keyup', control)
+    scoreDisplay.innerHTML = ' You WON!'
+  }
+}
